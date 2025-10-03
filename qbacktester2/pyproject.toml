@@ -5,21 +5,39 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "qbacktester"
 version = "0.1.0"
-description = "A quantitative backtesting library for financial strategies"
+description = "A professional quantitative backtesting library for financial strategies"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"},
+    {name = "Quantitative Strategy Team", email = "quant@example.com"},
+]
+maintainers = [
+    {name = "Quantitative Strategy Team", email = "quant@example.com"},
+]
+keywords = [
+    "quantitative finance",
+    "backtesting",
+    "trading strategies",
+    "financial analysis",
+    "portfolio optimization",
+    "risk management",
+    "walk-forward analysis",
+    "vectorized backtesting",
 ]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
 ]
 dependencies = [
     "pandas>=2.0.0",
@@ -35,11 +53,18 @@ dependencies = [
 dev = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
     "black>=23.0.0",
     "isort>=5.12.0",
     "mypy>=1.0.0",
     "pre-commit>=3.0.0",
     "bandit>=1.7.0",
+    "flake8>=6.0.0",
+    "ruff>=0.1.0",
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
 ]
 
 [project.scripts]

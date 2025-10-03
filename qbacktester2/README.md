@@ -4,6 +4,12 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![Type checking: mypy](https://img.shields.io/badge/type%20checking-mypy-blue.svg)](http://mypy-lang.org/)
+[![Security: bandit](https://img.shields.io/badge/security-bandit-green.svg)](https://bandit.readthedocs.io/)
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![CI/CD](https://github.com/yourusername/qbacktester/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/yourusername/qbacktester/actions)
+[![Coverage](https://codecov.io/gh/yourusername/qbacktester/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/qbacktester)
+[![Docker](https://img.shields.io/badge/docker-available-blue.svg)](https://hub.docker.com/r/yourusername/qbacktester)
 
 A quantitative backtesting library for financial strategies built with Python 3.11+.
 
@@ -324,23 +330,109 @@ class MyCustomStrategy(Strategy):
 
 ```
 qbacktester2/
+├── .github/
+│   └── workflows/
+│       └── ci.yml            # CI/CD pipeline
 ├── src/
 │   └── qbacktester/
-│       ├── __init__.py
-│       ├── backtester.py      # Core backtesting engine
-│       ├── data.py            # Data loading utilities
-│       ├── strategy.py        # Strategy base classes
-│       └── cli.py             # Command line interface
-├── tests/                     # Test suite
-├── notebooks/                 # Jupyter notebooks for analysis
-├── data/                      # Data files (gitignored)
-├── reports/                   # Generated reports (gitignored)
-├── pyproject.toml            # Project configuration
-├── .gitignore               # Git ignore rules
-└── README.md                # This file
+│       ├── __init__.py       # Package initialization
+│       ├── backtester.py     # Core backtesting engine
+│       ├── cli.py            # Command line interface
+│       ├── config.py         # Configuration management
+│       ├── data.py           # Data loading utilities
+│       ├── exceptions.py     # Custom exceptions
+│       ├── indicators.py     # Technical indicators
+│       ├── metrics.py        # Performance metrics
+│       ├── optimize.py       # Parameter optimization
+│       ├── plotting.py       # Visualization tools
+│       ├── run.py            # High-level API
+│       ├── strategy.py       # Strategy base classes
+│       └── walkforward.py    # Walk-forward analysis
+├── tests/                    # Comprehensive test suite
+├── notebooks/                # Jupyter notebooks for analysis
+├── scripts/                  # Development and utility scripts
+│   ├── setup_dev.py         # Development setup
+│   ├── check_quality.py     # Quality checks
+│   └── profile_vectorization.py
+├── data/                     # Data files (gitignored)
+├── reports/                  # Generated reports (gitignored)
+├── .dockerignore            # Docker ignore rules
+├── .gitignore              # Git ignore rules
+├── .pre-commit-config.yaml # Pre-commit hooks
+├── CHANGELOG.md            # Change log
+├── CONTRIBUTING.md         # Contributing guidelines
+├── SECURITY.md             # Security policy
+├── Dockerfile              # Multi-stage Docker build
+├── docker-compose.yml      # Docker Compose configuration
+├── Makefile                # Development commands
+├── pyproject.toml          # Project configuration
+└── README.md               # This file
 ```
 
 ## Development
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/qbacktester.git
+cd qbacktester
+
+# Run the development setup script
+python scripts/setup_dev.py
+
+# Or set up manually
+make install-dev
+make pre-commit
+```
+
+### Development Tools
+
+We provide a comprehensive set of development tools:
+
+```bash
+# Install development dependencies
+make install-dev
+
+# Run all quality checks
+make ci
+
+# Run tests
+make test
+
+# Run tests with coverage
+make test-cov
+
+# Format code
+make format
+
+# Run linting
+make lint
+
+# Type checking
+make type-check
+
+# Security checks
+make security
+
+# Clean build artifacts
+make clean
+
+# Build package
+make build
+```
+
+### Code Quality
+
+We maintain high code quality with automated tools:
+
+- **Black**: Code formatting
+- **isort**: Import sorting
+- **flake8**: Linting
+- **mypy**: Type checking
+- **bandit**: Security scanning
+- **ruff**: Additional linting
+- **pre-commit**: Automated quality checks
 
 ### Running Tests
 
@@ -349,26 +441,42 @@ qbacktester2/
 pytest
 
 # Run with coverage
-pytest --cov=qbacktester
+pytest --cov=qbacktester --cov-report=html
 
 # Run specific test file
 pytest tests/test_backtester.py
+
+# Run tests in parallel
+pytest -n auto
 ```
 
-### Code Quality
+### Pre-commit Hooks
+
+Pre-commit hooks run automatically on commit:
 
 ```bash
-# Format code
-black src/ tests/
+# Install pre-commit hooks
+pre-commit install
 
-# Sort imports
-isort src/ tests/
-
-# Type checking
-mypy src/
-
-# Run all quality checks
+# Run hooks on all files
 pre-commit run --all-files
+
+# Update hook versions
+pre-commit autoupdate
+```
+
+### Docker Development
+
+```bash
+# Build Docker image
+make docker-build
+
+# Run Docker container
+make docker-run
+
+# Or manually
+docker build -t qbacktester .
+docker run --rm -v $(pwd)/reports:/app/reports qbacktester
 ```
 
 ### Building Documentation
