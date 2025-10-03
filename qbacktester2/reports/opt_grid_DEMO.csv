@@ -1,0 +1,10 @@
+fast,slow,sharpe,max_dd,cagr,equity_final,volatility,calmar,hit_rate,num_trades,error
+3,10,,,,,,,,0,price_df must contain 'Close' column
+3,15,,,,,,,,0,price_df must contain 'Close' column
+3,20,,,,,,,,0,price_df must contain 'Close' column
+5,10,,,,,,,,0,price_df must contain 'Close' column
+5,15,,,,,,,,0,price_df must contain 'Close' column
+5,20,,,,,,,,0,price_df must contain 'Close' column
+7,10,,,,,,,,0,price_df must contain 'Close' column
+7,15,,,,,,,,0,price_df must contain 'Close' column
+7,20,,,,,,,,0,price_df must contain 'Close' column

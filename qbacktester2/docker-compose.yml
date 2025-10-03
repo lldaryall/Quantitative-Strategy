@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  qbacktester:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+    command: qbacktester --help
+    environment:
+      - PYTHONUNBUFFERED=1
